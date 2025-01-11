@@ -38,6 +38,8 @@ jobs:
       - name: Commit index.html
         run: |
           mv ./docs/build/html/m.html ./index.html
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -B gh-pages
           git add index.html
           git commit -m "Update index.html"
