@@ -1,4 +1,4 @@
-ClienT
+Client
 ======
 
 .. currentmodule:: TheApi
