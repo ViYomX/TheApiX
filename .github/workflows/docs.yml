@@ -37,6 +37,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./docs/build/html
-          target-folder: v$(python -c "from TheApi import __version__; print('.'.join(__version__.split('.')[:2]))")
-          commit-message: "Update docs"
           single-commit: true
