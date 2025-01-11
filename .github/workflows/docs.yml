@@ -1,4 +1,4 @@
-name: Docs
+name: Build docs
 
 on:
   push:
@@ -34,9 +34,9 @@ jobs:
           make html
           version=$(python -c "from TheApi import __version__; print('.'.join(__version__.split('.')[:2]))")
           mkdir -p ./html/$version
-          mv ./docs/build/html/* ./html/$version
+          mv ./build/html/* ./html/$version
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./html
-          
+          folder: ./docs/html
