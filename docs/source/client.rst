@@ -1,5 +1,5 @@
-Client
-==============
+ClienT
+======
 
 .. currentmodule:: TheApi
 
