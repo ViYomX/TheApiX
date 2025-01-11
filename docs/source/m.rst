@@ -8,8 +8,8 @@ This is the central hub for all versions of TheApix documentation.
 Available Versions
 ------------------
 
-- `v1.0.1 </v1.0.1/index>`_
-- `v1.0.0 </v1.0.0/index>`_
+- `v1.0.1 <v1.0.1/index>`_
+- `v1.0.0 <v1.0.0/index>`_
 
 You can find detailed guides, reference documentation, and examples in each version's documentation.
 
