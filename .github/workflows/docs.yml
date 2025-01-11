@@ -32,11 +32,13 @@ jobs:
         run: |
           cd docs
           make html
-          version=v$(python -c "from TheApi import __version__; print('.'.join(__version__.split('.')[:2]))")
-          mkdir -p ./html/$version
-          mv ./build/html/* ./html/$version
-
+          
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./docs/html
+          folder: ./docs/build/html
+          target-folder: v$(python -c "from TheApi import __version__; print('.'.join(__version__.split('.')[:2]))")
+          commit-message: "Update docs"
+          git-config-name: "github-actions[bot]"
+          git-config-email: "41898282+github-actions[bot]@users.noreply.github.com"
+          single-commit: true
