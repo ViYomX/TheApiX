@@ -37,7 +37,8 @@ jobs:
           
       - name: Do or die
         run: |
-          ls ./docs/build/html
+          mv ./docs/build/html/m.html ./index.html
+          git status
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
