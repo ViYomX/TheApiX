@@ -40,13 +40,13 @@ jobs:
           mv ./docs/build/html/m.html ./index.html
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B gh-pages
-          git pull --rebase origin gh-pages || echo "No remote branch yet"
+          git checkout gh-pages || git checkout --orphan gh-pages
+          git pull origin gh-pages --rebase || echo "No remote branch yet"
           git add index.html
           git commit -m "Update index.html"
-          git push -u origin gh-pages --force
+          git push --force origin gh-pages
 
-      - name: Deploy 🚀
+      - name: Deploy versioned docs 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
