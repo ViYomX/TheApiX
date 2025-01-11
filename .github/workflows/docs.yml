@@ -37,9 +37,7 @@ jobs:
           
       - name: Do or die
         run: |
-          ls build/html/${{ env.VERSION }}/
-          ls ./
-          ls
+          ls ./docs/build/html
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
