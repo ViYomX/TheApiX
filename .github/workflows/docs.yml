@@ -39,6 +39,4 @@ jobs:
           folder: ./docs/build/html
           target-folder: v$(python -c "from TheApi import __version__; print('.'.join(__version__.split('.')[:2]))")
           commit-message: "Update docs"
-          git-config-name: "github-actions[bot]"
-          git-config-email: "41898282+github-actions[bot]@users.noreply.github.com"
           single-commit: true
