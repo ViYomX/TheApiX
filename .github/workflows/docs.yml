@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r docs/requirements.txt
-          VERSION=$(python -c "from TheApi import __version__; print('.'.join(__version__.split('.')[:2]))")
+          VERSION=v$(python -c "from TheApi import __version__; print(__version__)")
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Build documentation
