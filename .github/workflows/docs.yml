@@ -34,18 +34,19 @@ jobs:
         run: |
           cd docs
           make html
-          
-      - name: Do or die
+
+      - name: Commit index.html
         run: |
           mv ./docs/build/html/m.html ./index.html
+          git checkout -B gh-pages
           git add index.html
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git push origin gh-pages
+          git commit -m "Update index.html"
+          git push -u origin gh-pages
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          branch: gh-pages
           folder: ./docs/build/html
           single-commit: true
           target-folder: ${{ env.VERSION }}
