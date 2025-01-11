@@ -38,3 +38,5 @@ jobs:
         with:
           folder: ./docs/build/html
           single-commit: true
+          target-folder: v1.0
+
