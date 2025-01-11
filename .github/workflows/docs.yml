@@ -38,7 +38,11 @@ jobs:
       - name: Do or die
         run: |
           mv ./docs/build/html/m.html ./index.html
-          git status
+          git add index.html
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git push origin gh-pages
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
