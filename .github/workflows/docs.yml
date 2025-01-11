@@ -35,6 +35,9 @@ jobs:
           cd docs
           make html
           
+      - Do or die
+         mv build/html/m.html .
+         ls 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
