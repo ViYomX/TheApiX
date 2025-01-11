@@ -27,6 +27,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r docs/requirements.txt
+          VERSION=$(python -c "from TheApi import __version__; print('.'.join(__version__.split('.')[:2]))")
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Build documentation
         run: |
@@ -38,5 +40,4 @@ jobs:
         with:
           folder: ./docs/build/html
           single-commit: false
-          target-folder: v1.0
-
+          target-folder: ${{ env.VERSION }}
