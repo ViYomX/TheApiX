@@ -36,8 +36,10 @@ jobs:
           make html
           
       - Do or die
-         mv build/html/m.html .
-         ls 
+        run: |
+          mv build/html/m.html ./
+          ls ./
+          ls
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
