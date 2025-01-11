@@ -32,10 +32,6 @@ jobs:
         run: |
           cd docs
           make html
-          version=$(python -c "from TheApi import __version__; print('.'.join(__version__.split('.')[:2]))")
-          mkdir -p ./docs/build/html/$version
-          mv ./docs/build/html/* ./docs/build/html/$version
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
