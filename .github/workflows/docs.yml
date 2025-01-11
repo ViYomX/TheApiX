@@ -37,7 +37,7 @@ jobs:
           
       - name: Do or die
         run: |
-          mv build/html/${{ env.VERSION }}/m.html ./
+          ls build/html/${{ env.VERSION }}/m.html
           ls ./
           ls
       - name: Deploy 🚀
