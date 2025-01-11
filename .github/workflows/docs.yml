@@ -44,7 +44,7 @@ jobs:
           git pull --rebase origin gh-pages || echo "No remote branch yet"
           git add index.html
           git commit -m "Update index.html"
-          git push -u origin gh-pages
+          git push -u origin gh-pages --force
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
