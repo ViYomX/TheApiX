@@ -1,0 +1,55 @@
+name: Build docs
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r docs/requirements.txt
+          VERSION=v$(python -c "from TheApi import __version__; print(__version__)")
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Build documentation
+        run: |
+          cd docs
+          make html
+
+      - name: Commit index.html
+        run: |
+          mv ./docs/build/html/m.html ./index.html
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout gh-pages || git checkout --orphan gh-pages
+          git pull origin gh-pages --rebase || echo "No remote branch yet"
+          git add index.html
+          git commit -m "Update index.html"
+          git push --force origin gh-pages
+
+      - name: Deploy versioned docs 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./docs/build/html
+          single-commit: true
+          target-folder: ${{ env.VERSION }}
