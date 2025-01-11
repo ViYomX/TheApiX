@@ -8,12 +8,8 @@ This is the central hub for all versions of TheApix documentation.
 Available Versions
 ------------------
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Versions
-
-   v1.0.1 </v1.0.1/index>
-   v1.0.0 </v1.0.0/index>
+- v1.0.1 </v1.0.1/index>
+- v1.0.0 </v1.0.0/index>
 
 You can find detailed guides, reference documentation, and examples in each version's documentation.
 
